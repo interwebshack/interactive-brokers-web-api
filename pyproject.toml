@@ -1,0 +1,46 @@
+[tool.poetry]
+name = "ib-rest-api"
+version = "0.1.0"
+description = "A REST API for Interactive Brokers."
+authors = ["interwebshack <22042209+interwebshack@users.noreply.github.com>"]
+license = "MIT License"
+readme = "README.md"
+packages = [{ include = "ib_rest_api" }]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Framework :: Flask",
+    "License :: OSI Approved :: MIT License"
+]
+
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.13"
+flask = ">=3.1.0"
+gunicorn= ">=23.0.0"
+python-dotenv = ">=1.0.1"
+requests = ">=2.32.3"
+
+
+[tool.poetry.group.dev.dependencies]
+black = ">=24.10.0"
+flake8 = ">=7.1.1"
+isort = ">=5.13.2"
+mypy = ">=1.13.0"
+pylint = ">=3.3.2"
+pytest = ">=8.3.4"
+pytest-cov = ">=6.0.0"
+pytest-flask = ">=1.3.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+ib-app = "ib_rest_api.app:create_app"
+
+[tool.black]
+line-length = 100
+target-version = ['py310', 'py311', 'py312']
